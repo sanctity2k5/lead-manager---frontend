@@ -13,7 +13,7 @@ To run the project locally on port 3000, follow these steps:
 ### Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/lead-manager.git
+   https://github.com/sanctity2k5/lead-manager---frontend.git
    ```
 
 2. Navigate to the project directory:
