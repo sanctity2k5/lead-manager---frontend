@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Lead Manager
 
-## Getting Started
+Lead Manager is a simple application that allows users to manage leads efficiently.
 
-First, run the development server:
+## Running Locally
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+To run the project locally on port 3000, follow these steps:
+
+### Prerequisites
+- Node.js installed (v16 or later recommended)
+- Git installed
+
+### Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/lead-manager.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd lead-manager
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open the application in your browser:
+   ```
+   http://localhost:3000
+   ```
+
+## Using the Hosted Version
+
+You can use the hosted version of Lead Manager at:
+[Lead Manager on Vercel](https://lead-manager-lemon.vercel.app/)
+
+### Features
+- Add new leads with name, email, and status
+- View a list of all leads
+- Status categorization for better tracking
+
+## Backend API
+The application fetches data from the backend hosted on Render:
+```
+https://lead-manager-backend.onrender.com/leads
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
+- Next.js (Frontend framework)
+- Tailwind CSS (Styling)
+- Framer Motion (Animations)
+- React Hook Form + Yup (Form validation)
+- Render (Backend hosting)
+- Vercel (Frontend hosting)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Contribution
+If you would like to contribute:
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Make your changes and commit (`git commit -m "Added new feature"`)
+4. Push to the branch (`git push origin feature-branch`)
+5. Open a Pull Request
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## License
+This project is licensed under the MIT License.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
