@@ -19,6 +19,9 @@ export default function Home() {
   const [leads, setLeads] = useState([]);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
+
   const {
     register,
     handleSubmit,
@@ -79,6 +82,14 @@ export default function Home() {
     }
   };
 
+  // Calculate the current leads to display
+  const indexOfLastLead = currentPage * itemsPerPage;
+  const indexOfFirstLead = indexOfLastLead - itemsPerPage;
+  const currentLeads = leads.slice(indexOfFirstLead, indexOfLastLead);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen p-6 bg-cover bg-center" style={{ backgroundImage: `url(${bgImage.src})` }}>
       <div className="absolute inset-0 bg-black opacity-60"></div>
@@ -122,9 +133,9 @@ export default function Home() {
 
       <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-2xl mt-6 relative z-10">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">Leads</h2>
-        {leads.length > 0 ? (
+        {currentLeads.length > 0 ? (
           <ul className="divide-y divide-gray-200">
-            {leads.map((lead) => (
+            {currentLeads.map((lead) => (
               <li key={lead._id} className="p-4 flex justify-between items-center">
                 <div>
                   <p className="text-lg font-semibold">{lead.name}</p>
@@ -139,6 +150,19 @@ export default function Home() {
         ) : (
           <p className="text-center text-gray-500">No leads available.</p>
         )}
+
+        {/* Pagination Controls */}
+        <div className="flex justify-center mt-4">
+          {Array.from({ length: Math.ceil(leads.length / itemsPerPage) }, (_, i) => (
+            <button
+              key={i + 1}
+              onClick={() => paginate(i + 1)}
+              className={`mx-1 px-4 py-2 rounded-lg ${currentPage === i + 1 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
